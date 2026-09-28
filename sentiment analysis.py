@@ -34,7 +34,7 @@ def analyze_sentiment(text):
 
     # Send the prompt to the language model
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-20b",
         messages=[
             {
                 "role": "user",
@@ -55,3 +55,10 @@ sample_sentences = [
     "The package was delivered on Tuesday.",
     "The product works very well, but the delivery took much longer than expected."
 ]
+
+for sentence in sample_sentences:
+    result = analyze_sentiment(sentence)
+
+    print("Sentence:", sentence)
+    print("Sentiment Analysis:", result)
+    print()
